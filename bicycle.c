@@ -4,10 +4,12 @@
 #include <time.h>
 #include <unistd.h>
 
+#include "ui.h"
+
 // Constants
-#define CASE_EXIT 9
-const int RESET = 0;
-const int EXIT = 9;
+//#define CASE_EXIT 9
+//const int RESET = 0;
+//const int EXIT = 9;
 
 // Global Variables
 int userInput = 0;
@@ -33,6 +35,8 @@ typedef struct {
 } PlayerStats;
 PlayerStats p1 = {0.0f, 0, 1.0f, 0.11f};
 
+int dayCount = 0;
+
 // Gameplay Prototypes
 int bike_manual(void);
 
@@ -42,12 +46,14 @@ void lineBreak(int astNum);
 int inputHandler(int *variable);
 
 // Interface Prototypes
+/*
 bool user_saves(void);
 int main_options(void);
 int main_info(void);
 int main_credits(void);
 int game_overview (void);
 void displayStats(PlayerStats player);
+*/
 
 int main(void)
 {
@@ -58,7 +64,8 @@ int main(void)
         START,
         OPTIONS,
         INFO_HOW,
-        CREDITS
+        CREDITS,
+        EXIT = 9
     };
     
     lineBreak(lineBreakLen);
@@ -99,7 +106,7 @@ int main(void)
             case CREDITS:
                 m_Screen = main_credits();
                 break;
-            case CASE_EXIT:
+            case 9:
                 lineBreak(lineBreakLen);
                 printf("Exiting game.\n");
                 break;
@@ -131,13 +138,16 @@ int bike_manual(void)
     printf("earned %.2f dollars!\n", dEarned);
     wait(0.5);
 
-    return RESET;
+    dayCount += 1;
+
+    return 0;
 }
 
 /*******************************************/
 //           Interface Functions           //
 /*******************************************/
 
+/*
 bool user_saves(void) // Currently, '1' is the only correct choice.
 {
     lineBreak(lineBreakLen);
@@ -164,7 +174,6 @@ bool user_saves(void) // Currently, '1' is the only correct choice.
         }
     } while (true);
 }
-
 
 int main_options(void)
 {
@@ -337,7 +346,7 @@ int game_overview(void)
 
     lineBreak(lineBreakLen);
 
-    printf("You wake up. It's day %d.\n", 1);
+    printf("You wake up. It's day %d.\n", dayCount);
 
     do
     {
@@ -353,7 +362,7 @@ int game_overview(void)
                         displayStats(p1);
                     }
 
-                    printf("Day %d.\n", 0);
+                    printf("Day %d.\n", dayCount);
                     printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
                     printf("==> ");
                     inStatus = inputHandler(&g_ovScreen);
@@ -383,6 +392,7 @@ void displayStats(PlayerStats player)
     printf("$ Mult:  %.2fx\n", player.dollarRate);
     printf("F Mult:  %.2fx\n\n", player.favorRate);
 }
+*/
 
 /*****************************************/
 //           Utility Functions           //
