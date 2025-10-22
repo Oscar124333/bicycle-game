@@ -48,14 +48,11 @@ int inputHandler(int *variable)
     int status = 0;
     int ch;
     status = scanf("%d", variable);
-    if (status == 1)
-    {
-        return status;
-    }
-    else
+    if (status != 1)
     {
         while ((ch = getchar()) != '\n' && ch != EOF); // Clear buffer
     }
+    return status;
 }
 
 #endif

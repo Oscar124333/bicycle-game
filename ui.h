@@ -65,8 +65,7 @@ int main_options(void)
                     printf("Options\n");
                     printf("1: Linebreak Length\n2: Placeholder\n\n9: Exit\n\n");
                     printf("==> ");
-                    inStatus = inputHandler(&m_opScreen);
-                } while (inStatus != 1);
+                } while (inputHandler(&m_opScreen) != 1); // <--- EXPERIMENT WITH THIS
                 break;
                 case LINEBREAKLEN:
                 do
@@ -75,8 +74,7 @@ int main_options(void)
                     
                     printf("Default LineBreak Length: 20\nPlease enter your desired length\n");
                     printf("==> ");
-                    inStatus = inputHandler(&lineBreakLen);
-                } while (inStatus != 1);
+                } while (inputHandler(&lineBreakLen) != 1);
 
                 printf("\nLineBreak Length set to %d.\n", lineBreakLen);
 
@@ -85,9 +83,9 @@ int main_options(void)
             case PLACEHOLDER:
                 m_opScreen = OPTIONS;
                 break;
-                case CASE_EXIT:
+            case CASE_EXIT:
                 break;
-                default:
+            default:
                 m_opScreen = OPTIONS;
                 break;
             }
@@ -119,8 +117,7 @@ int main_info(void)
                     printf("Information\n");
                     printf("1: How to Play\n2: Lore\n\n9: Exit\n\n");
                     printf("==> ");
-                    inStatus = inputHandler(&m_inScreen);
-                } while (inStatus != 1);
+                } while (inputHandler(&m_inScreen) != 1);
 
                 break;
             case H2P:
@@ -133,8 +130,7 @@ int main_info(void)
                         printf("How to Play WIP\n");
                         printf("\n9: Exit\n\n");
                         printf("==> ");
-                        inStatus = inputHandler(&m_inScreen);
-                    } while (inStatus != 1);
+                    } while (inputHandler(&m_inScreen) != 1);
                 } while (m_inScreen != EXIT);
 
                 m_inScreen = INFO;
@@ -148,8 +144,7 @@ int main_info(void)
                         printf("Lore WIP\n");
                         printf("\n9: Exit\n\n");
                         printf("==> ");
-                        inStatus = inputHandler(&m_inScreen);
-                    } while (inStatus != 1);
+                    } while (inputHandler(&m_inScreen) != 1);
                 } while (m_inScreen != EXIT);
 
                 m_inScreen = INFO;
@@ -184,8 +179,7 @@ int main_credits(void)
                     printf("Credits WIP\n");
                     printf("\n9: Exit\n\n");
                     printf("==> ");
-                    inStatus = inputHandler(&m_crScreen);
-                } while (inStatus != 1);
+                } while (inputHandler(&m_crScreen) != 1);
                 break;
             case PLACEHOLDER:
                 m_crScreen = CREDITS;
@@ -242,8 +236,7 @@ int game_overview(void)
                     printf("Day %d.\n", dayCount);
                     printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
                     printf("==> ");
-                    inStatus = inputHandler(&g_ovScreen);
-                } while (inStatus != 1);
+                } while (inputHandler(&g_ovScreen) != 1);
                 break;
             case GO2SCHOOL:
                 g_ovScreen = bike_manual();
