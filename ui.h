@@ -1,18 +1,24 @@
-#ifndef ui_h
-#define ui_h
+#ifndef UI_H
+#define UI_H
 
-// Header Constants
-const int RESET = 0;
-const int EXIT = 9;
-#define CASE_EXIT 0
+#include "utility.h"
+#include "mechanics.h"
+
+// Constants
+extern const int RESET;
+extern const int EXIT;
+#define CASE_EXIT 9
 
 // Globals
-int lineBreakLen = 20;
-int inStatus = 0;
+extern int lineBreakLen;
+extern int dayCount;
+extern int inStatus;
 
 bool user_saves(void) // Currently, '1' is the only correct choice.
 {
     lineBreak(lineBreakLen);
+
+    int inSave = 0;
 
     do
     {
@@ -20,14 +26,14 @@ bool user_saves(void) // Currently, '1' is the only correct choice.
         {
             printf("Please choose your save.\n");
             printf("\n==> ");
-            inStatus = inputHandler(&userSave);
+            inStatus = inputHandler(&inSave);
 
             lineBreak(lineBreakLen);
         } while (inStatus != 1);
         
-        if (userSave == 1)
+        if (inSave == 1)
         {
-            printf("Successfully selected save #%d.\n", userSave);
+            printf("Successfully selected save #%d.\n", inSave);
             return true;
         }
         else
@@ -79,16 +85,17 @@ int main_options(void)
             case PLACEHOLDER:
                 m_opScreen = OPTIONS;
                 break;
-            case CASE_EXIT:
+                case CASE_EXIT:
                 break;
-            default:
+                default:
                 m_opScreen = OPTIONS;
                 break;
-        }
-    } while (m_opScreen != EXIT);
-
-    return RESET;
-}
+            }
+        } while (m_opScreen != EXIT);
+        
+        return RESET;
+    }
+    
 
 int main_info(void)
 {
@@ -194,6 +201,14 @@ int main_credits(void)
     return RESET;
 }
 
+void displayStats(PlayerStats player)
+    {
+        printf("Balance: $%.2lf\n", player.dBal);
+        printf("Favors:  %d\n", player.fBal);
+        printf("$ Mult:  %.2fx\n", player.dollarRate);
+        printf("F Mult:  %.2fx\n\n", player.favorRate);
+    }
+
 int game_overview(void)
 {
     int g_ovScreen = 0;
@@ -247,12 +262,5 @@ int game_overview(void)
     return RESET;
 }
 
-void displayStats(PlayerStats player)
-{
-    printf("Balance: $%.2lf\n", player.dBal);
-    printf("Favors:  %d\n", player.fBal);
-    printf("$ Mult:  %.2fx\n", player.dollarRate);
-    printf("F Mult:  %.2fx\n\n", player.favorRate);
-}
 
 #endif

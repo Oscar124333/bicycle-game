@@ -5,11 +5,13 @@
 #include <unistd.h>
 
 #include "ui.h"
+#include "utility.h"
+#include "mechanics.h"
 
 // Constants
 //#define CASE_EXIT 9
-//const int RESET = 0;
-//const int EXIT = 9;
+const int RESET = 0;
+const int EXIT = 9;
 
 // Global Variables
 int userInput = 0;
@@ -19,31 +21,19 @@ int lineBreakLen = 20;
 
 // Gameplay Data
 /*  Distance is measured in miles * 10; 100 distance = 10 miles */
-typedef struct {
-    int type;
-    int speed; 
-    int HP;
-    float accidentRate;
-} Bicycle;
-Bicycle bike1 = {0, 100, 10, 0.3f};
 
-typedef struct {
-    float dBal; // Dollars (standard currency)
-    int fBal;   // Favors (premium currency)
-    float dollarRate;
-    float favorRate;
-} PlayerStats;
-PlayerStats p1 = {0.0f, 0, 1.0f, 0.11f};
 
 int dayCount = 0;
 
 // Gameplay Prototypes
-int bike_manual(void);
+// int bike_manual(void);
 
 // Utility Prototypes
+/*
 void wait(float seconds);
 void lineBreak(int astNum);
 int inputHandler(int *variable);
+*/
 
 // Interface Prototypes
 /*
@@ -64,8 +54,7 @@ int main(void)
         START,
         OPTIONS,
         INFO_HOW,
-        CREDITS,
-        EXIT = 9
+        CREDITS
     };
     
     lineBreak(lineBreakLen);
@@ -124,10 +113,11 @@ return 0;
 //           Gameplay Functions           //
 /******************************************/
 
+/*
 int bike_manual(void)
 {
     lineBreak(lineBreakLen);
-
+    
     srand(time(NULL));
     float dEarned = (int)((rand() % (300 - 100)) + 100) / 100.0f;
     p1.dBal += dEarned;
@@ -137,11 +127,12 @@ int bike_manual(void)
     wait(0.5);
     printf("earned %.2f dollars!\n", dEarned);
     wait(0.5);
-
+    
     dayCount += 1;
-
+    
     return 0;
 }
+*/
 
 /*******************************************/
 //           Interface Functions           //
@@ -398,6 +389,7 @@ void displayStats(PlayerStats player)
 //           Utility Functions           //
 /*****************************************/
 
+/*
 void wait(float seconds)
 {
     float milliseconds = seconds * 1000.0f;
@@ -452,3 +444,4 @@ int inputHandler(int *variable)
         while ((ch = getchar()) != '\n' && ch != EOF); // Clear buffer
     }
 }
+*/
