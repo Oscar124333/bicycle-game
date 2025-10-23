@@ -1,5 +1,5 @@
-#ifndef UTILITY_H
-#define UTILITY_H
+#ifndef genUTIL_H
+#define genUTIL_H
 
 // #include <unitsd.h>
 

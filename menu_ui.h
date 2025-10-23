@@ -1,8 +1,8 @@
-#ifndef UI_H
-#define UI_H
+#ifndef menuUI_H
+#define menuUI_H
 
-#include "utility.h"
-#include "mechanics.h"
+#include "gen_util.h"
+#include "game_util.h"
 
 // Constants
 extern const int RESET;
@@ -12,11 +12,9 @@ extern const int EXIT;
 // Globals
 extern int lineBreakLen;
 extern int dayCount;
-extern int inStatus;
 
 bool user_saves(void) // Currently, '1' is the only correct choice.
 {
-    lineBreak(lineBreakLen);
 
     int inSave = 0;
 
@@ -24,12 +22,12 @@ bool user_saves(void) // Currently, '1' is the only correct choice.
     {
         do
         {
+            lineBreak(lineBreakLen);
+
             printf("Please choose your save.\n");
             printf("\n==> ");
-            inStatus = inputHandler(&inSave);
-
-            lineBreak(lineBreakLen);
-        } while (inStatus != 1);
+        } while (inputHandler(&inSave) != 1);
+        
         
         if (inSave == 1)
         {
@@ -40,6 +38,7 @@ bool user_saves(void) // Currently, '1' is the only correct choice.
         {
             printf("Save not found.\n");
         }
+        wait(0.5);
     } while (true);
 }
 
@@ -67,7 +66,7 @@ int main_options(void)
                     printf("==> ");
                 } while (inputHandler(&m_opScreen) != 1); // <--- EXPERIMENT WITH THIS
                 break;
-                case LINEBREAKLEN:
+            case LINEBREAKLEN:
                 do
                 {
                     lineBreak(lineBreakLen);

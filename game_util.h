@@ -1,7 +1,8 @@
-#ifndef MECHANICS_H
-#define MECHANICS_H
+#ifndef gameUTIL_H
+#define gameUTIL_H
 
-#include "utility.h"
+#include "gen_util.h"
+#include "game_ui.h"
 
 // Constants
 
@@ -10,7 +11,6 @@ extern int lineBreakLen;
 extern const int RESET;
 extern const int EXIT;
 extern int dayCount;
-extern int inStatus;
 
 typedef struct {
     int type;
