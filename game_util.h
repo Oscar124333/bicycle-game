@@ -1,8 +1,8 @@
-#ifndef gameUTIL_H
+#ifndef gameUITL_H
 #define gameUTIL_H
 
 #include "gen_util.h"
-#include "game_ui.h"
+#include "game_UI.h"
 
 // Constants
 
@@ -12,15 +12,17 @@ extern const int RESET;
 extern const int EXIT;
 extern int dayCount;
 
-typedef struct {
+typedef struct
+{
     int type;
-    int speed; 
+    int speed;
     int HP;
     float accidentRate;
 } Bicycle;
 Bicycle bike1 = {0, 100, 10, 0.3f};
 
-typedef struct {
+typedef struct
+{
     float dBal; // Dollars (standard currency)
     int fBal;   // Favors (premium currency)
     float dollarRate;
@@ -35,7 +37,7 @@ int bike_manual(void)
     srand(time(NULL));
     float dEarned = (int)((rand() % (300 - 100)) + 100) / 100.0f;
     p1.dBal += dEarned;
-    
+
     wait(0.5);
     printf("biking...\n"); // will make a automagical function that does dot dot dot for me
     wait(0.5);

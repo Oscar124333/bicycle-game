@@ -1,7 +1,7 @@
 #ifndef genUTIL_H
 #define genUTIL_H
 
-// #include <unitsd.h>
+#include <stdio.h>
 
 void wait(float seconds)
 {
@@ -13,13 +13,13 @@ void lineBreak(int astNum)
 {
     int astSpace = 1;
     int nlBefore = 1;
-    int nlAfter  = 1;
+    int nlAfter = 1;
     int arrEnd = 1;
-    
-    int arrSize = astNum + (astSpace *(astNum - 1));
+
+    int arrSize = astNum + (astSpace * (astNum - 1));
     int arrSizeTotal = arrSize + nlBefore + nlAfter + arrEnd;
     char arr[arrSizeTotal];
-    
+
     for (int i = nlBefore; i < arrSize + nlBefore; i += astSpace)
     {
         arr[i] = '*';
@@ -29,7 +29,7 @@ void lineBreak(int astNum)
             arr[i + j] = ' ';
         }
     }
-    
+
     for (int i = 0; i < nlBefore; i++)
     {
         arr[i] = '\n';
@@ -38,7 +38,7 @@ void lineBreak(int astNum)
     {
         arr[arrSize + nlBefore + i] = '\n';
     }
-    
+
     arr[arrSizeTotal - arrEnd] = '\0';
     printf("%s\n", arr);
 }
@@ -50,7 +50,8 @@ int inputHandler(int *variable)
     status = scanf("%d", variable);
     if (status != 1)
     {
-        while ((ch = getchar()) != '\n' && ch != EOF); // Clear buffer
+        while ((ch = getchar()) != '\n' && ch != EOF)
+            ; // Clear buffer
     }
     return status;
 }

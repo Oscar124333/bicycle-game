@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "game_ui.h": "c",
+        "gen_util.h": "c"
+    }
+}

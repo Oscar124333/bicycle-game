@@ -26,7 +26,7 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 + Seed `rand()`
 
 ### Urgent To-Do
-+ fit `game_overview()` within `main()`
++ make a separate function for each case in each mega function; convert the mega function into its own header?
 + move all functions dependent on a global into their own header file
 + figure out what `main()` should run
 + split all the functions up
