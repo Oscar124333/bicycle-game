@@ -5,12 +5,12 @@
 #include <unistd.h>
 
 #include "globals.h"
-#include "menu_UI.h"
+#include "menu_util.h"
 #include "gen_util.h"
 
 int main(void)
 {
-    int m_Screen = 0;
+    int screen = 0;
 
     enum MenuMain
     {
@@ -28,47 +28,49 @@ int main(void)
 
     do
     {
-        switch (m_Screen)
+        switch (screen)
         {
         case MAIN:
-            do
-            {
-                lineBreak(lineBreakLen);
-
-                printf("Main Menu\n");
-                printf("1: Start\n2: Options\n3: Info & How-To\n4: Credits\n\n9: Exit\n\n");
-                printf("==> ");
-            } while (inputHandler(&m_Screen) != 1);
-
+            inputPrompt(&screen, "Main Menu\n1: Start\n2: Options\n3: Info & How-To\n4: Credits\n\n9: Exit\n\n==> ");
             break;
         case START:
             printf("you started the game! wow!\n");
-            if (user_saves())
+
+            while (true)
             {
-                wait(0.5);
-                printf("Loading save #%d.\n", userSave);
-                wait(0.5);
-                m_Screen = game_overview();
+                inputPrompt(&userInput, "Please choose your save.\n\n==> ");
+                if (does_save_exist(userInput))
+                {
+                    wait(0.5);
+                    printf("Loading save #%d.\n", userSave);
+                    wait(0.5);
+                    screen = game_overview();
+                    break;
+                }
+                else
+                {
+                    printf("Save not found.\n");
+                }
             }
             break;
         case OPTIONS:
-            m_Screen = main_options();
+            screen = main_options();
             break;
         case INFO_HOW:
-            m_Screen = main_info();
+            screen = main_info();
             break;
         case CREDITS:
-            m_Screen = main_credits();
+            screen = main_credits();
             break;
-        case 9:
+        case CASE_EXIT:
             lineBreak(lineBreakLen);
             printf("Exiting game.\n");
             break;
         default:
-            m_Screen = MAIN;
+            screen = MAIN;
             break;
         }
-    } while (m_Screen != EXIT);
+    } while (screen != EXIT);
 
     return 0;
 }

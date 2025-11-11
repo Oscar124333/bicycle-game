@@ -7,4 +7,6 @@ void lineBreak(int astNum);
 
 int inputHandler(int *variable);
 
+void inputPrompt(int *variable, char *prompt);
+
 #endif

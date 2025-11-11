@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
-
 #include "gen_util.h"
+
+#include "globals.h"
 
 void wait(float seconds)
 {
@@ -51,7 +52,18 @@ int inputHandler(int *variable)
     if (status != 1)
     {
         while ((ch = getchar()) != '\n' && ch != EOF)
-            ; // Clear buffer
+        ; // Clear buffer
     }
     return status;
+}
+
+void inputPrompt(int *variable, char *prompt)
+{
+    do
+    {
+        lineBreak(lineBreakLen);
+
+        printf("%s", prompt);
+    } while (inputHandler(variable) != 1);
+    return;
 }

@@ -9,7 +9,7 @@ const int EXIT = 9;
 // Global Variables
 int userInput = 0;
 int lineBreakLen = 20;
-int userSave = 0;
+int userSave = 1;
 
 // Gameplayw Data
 /*  Distance is measured in miles * 10; 100 distance = 10 miles */

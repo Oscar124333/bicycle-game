@@ -6,6 +6,7 @@
         "stdbool.h": "c",
         "stdio.h": "c",
         "globals.h": "c",
-        "game_util.h": "c"
+        "game_util.h": "c",
+        "menu_util.h": "c"
     }
 }
