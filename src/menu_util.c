@@ -1,6 +1,6 @@
+#include "menu_util.h"
 #include <stdio.h>
 #include <stdbool.h>
-#include "menu_util.h"
 
 #include "globals.h"
 #include "menu_UI.h"
@@ -31,9 +31,7 @@ int save_handler(void)
     
     while (true)
     {
-        inputPrompt(&userInput,
-            "Please choose your save.\n\n"
-            "==> ");
+        inputPrompt(&userInput, "Please choose your save.\n");
         if (does_save_exist(userInput))
         {
             wait(0.5);

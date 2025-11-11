@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "main_options.h"
+#include <stdio.h>
 
 #include "globals.h"
 

@@ -1,23 +1,40 @@
-#include <stdio.h>
 #include "game_logic.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #include "globals.h"
+#include "game_UI.h"
+#include "gen_util.h"
 
-int bike_manual(void)
+void change_stats_additive(PlayerStats *player, PlayerStats change)
+{
+    player->dollars += change.dollars;
+    player->favors += change.favors;
+    player->dollarRate += change.dollarRate;
+    player->favorRate += change.favorRate;
+}
+
+void change_stats_multiplicative(PlayerStats *player, PlayerStats change)
+{
+    player->dollars *= change.dollars;
+    player->favors *= change.favors;
+    player->dollarRate *= change.dollarRate;
+    player->favorRate *= change.favorRate;
+}
+
+PlayerStats biking_RNG(int iterations)
 {
     lineBreak(lineBreakLen);
 
-    srand(time(NULL));
-    float dEarned = (int)((rand() % (300 - 100)) + 100) / 100.0f;
-    p1.dBal += dEarned;
+    PlayerStats change = {0.0f, 0, 0.0f, 0.0f};
 
-    wait(0.5);
-    printf("biking...\n"); // will make a automagical function that does dot dot dot for me
-    wait(0.5);
-    printf("earned %.2f dollars!\n", dEarned);
-    wait(0.5);
-
-    dayCount += 1;
-
-    return 0;
+    for (int i = 0; i < iterations; i++)
+    {
+        srand(time(NULL));
+        // Calculates in integers (cents), then converts to dollars
+        change.dollars += (int)((rand() % (300 - 100)) + 100) / 100.0f;
+    }
+    
+    return change;
 }

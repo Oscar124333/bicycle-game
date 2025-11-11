@@ -1,6 +1,8 @@
 #ifndef menuUTIL_H
 #define menuUTIL_H
 
+#include <stdbool.h>
+
 #include "globals.h"
 
 // Saves
@@ -14,7 +16,5 @@ int main_options(void);
 int main_info(void);
 
 int main_credits(void);
-
-void displayStats(PlayerStats player);
 
 #endif

@@ -23,12 +23,13 @@ extern Bicycle bike1;
 
 typedef struct
 {
-    float dBal; // Dollars (standard currency)
-    int fBal;   // Favors (premium currency)
+    float dollars;  // Standard currency)
+    int favors;       // Rare currency
     float dollarRate;
     float favorRate;
 } PlayerStats;
 extern PlayerStats p1;
+extern PlayerStats global_change;
 
 // Gameplay Data (Variables)
 extern int dayCount;

@@ -1,13 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include "game_util.h"
+#include <stdio.h>
+#include <stdbool.h>
 
 #include "globals.h"
 #include "game_logic.h"
 #include "game_UI.h"
 #include "gen_util.h"
 
+int go_to_school(bool iterationState, PlayerStats *player)
+{
+    int iterations = 1;
+    if (iterationState)
+    {
+        inputPrompt(&iterations, "How many times would you like to iterate?\n");
+    }
+    
+    PlayerStats statsSummands = biking_RNG(iterations);
+    change_stats_additive(player, statsSummands);
+    display_biking_RNG(statsSummands);
+
+    ++dayCount;
+
+    return RESET;
+}
 
 int game_overview(void)
 {
@@ -46,12 +61,16 @@ int game_overview(void)
             } while (inputHandler(&screen) != 1);
             break;
         case GO2SCHOOL:
-            screen = bike_manual();
+            screen = go_to_school(false, &p1);
             break;
         case SHOP:
-        case SKILLS:
-        case ITERATE:
             screen = OVERVIEW;
+            break;    
+        case SKILLS:
+            screen = OVERVIEW;
+            break;    
+        case ITERATE:
+            screen = go_to_school(true, &p1);
             break;
         default:
             screen = OVERVIEW;

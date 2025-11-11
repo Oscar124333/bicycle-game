@@ -32,7 +32,7 @@ int main(void)
         switch (screen)
         {
         case MAIN:
-            inputPrompt(&screen, "Main Menu\n1: Start\n2: Options\n3: Info & How-To\n4: Credits\n\n9: Exit\n\n==> ");
+            inputPrompt(&screen, "Main Menu\n1: Start\n2: Options\n3: Info & How-To\n4: Credits\n\n9: Exit\n");
             break;
         case START:
             printf("you started the game! wow!\n");

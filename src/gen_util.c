@@ -1,6 +1,6 @@
+#include "gen_util.h"
 #include <stdio.h>
 #include <unistd.h>
-#include "gen_util.h"
 
 #include "globals.h"
 
@@ -63,7 +63,7 @@ void inputPrompt(int *variable, char *prompt)
     {
         lineBreak(lineBreakLen);
 
-        printf("%s", prompt);
+        printf("%s\n==> ", prompt);
     } while (inputHandler(variable) != 1);
     return;
 }
