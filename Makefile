@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -MMD -MP
 
-SRC = bicycle.c
+SRC = main.c
 OBJ = $(SRC:.c=.o)
 DEP = $(OBJ:.o=.d)
 
@@ -15,4 +15,4 @@ main: $(OBJ)
 -include $(DEP)
 
 clean:
-	rm -f $(OBJ) $(DEP) bicycle
+	rm -f $(OBJ) $(DEP) main

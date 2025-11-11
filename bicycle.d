@@ -1,5 +1,5 @@
-bicycle.o: bicycle.c menu_ui.h gen_util.h game_util.h game_ui.h
-menu_ui.h:
+bicycle.o: bicycle.c menu_UI.h gen_util.h game_util.h game_UI.h
+menu_UI.h:
 gen_util.h:
 game_util.h:
-game_ui.h:
+game_UI.h:
