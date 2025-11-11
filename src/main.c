@@ -4,22 +4,9 @@
 #include <time.h>
 #include <unistd.h>
 
+#include "globals.h"
 #include "menu_UI.h"
 #include "gen_util.h"
-
-// Constants
-// #define CASE_EXIT 9
-const int RESET = 0;
-const int EXIT = 9;
-
-// Global Variables
-int userInput = 0;
-int userSave = 0;
-int lineBreakLen = 20;
-
-// Gameplay Data
-/*  Distance is measured in miles * 10; 100 distance = 10 miles */
-int dayCount = 0;
 
 int main(void)
 {

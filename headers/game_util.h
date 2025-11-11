@@ -1,34 +1,12 @@
 #ifndef gameUITL_H
 #define gameUTIL_H
 
+#include <stdlib.h>
+#include <time.h>
+
+#include "globals.h"
 #include "gen_util.h"
 #include "game_UI.h"
-
-// Constants
-
-// Globals
-extern int lineBreakLen;
-extern const int RESET;
-extern const int EXIT;
-extern int dayCount;
-
-typedef struct
-{
-    int type;
-    int speed;
-    int HP;
-    float accidentRate;
-} Bicycle;
-Bicycle bike1 = {0, 100, 10, 0.3f};
-
-typedef struct
-{
-    float dBal; // Dollars (standard currency)
-    int fBal;   // Favors (premium currency)
-    float dollarRate;
-    float favorRate;
-} PlayerStats;
-PlayerStats p1 = {0.0f, 0, 1.0f, 0.11f};
 
 int bike_manual(void)
 {

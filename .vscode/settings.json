@@ -1,6 +1,11 @@
 {
     "files.associations": {
-        "game_ui.h": "c",
-        "gen_util.h": "c"
+        "game_UI.h": "c",
+        "gen_util.h": "c",
+        "menu_UI.h": "c",
+        "stdbool.h": "c",
+        "stdio.h": "c",
+        "globals.h": "c",
+        "game_util.h": "c"
     }
 }
