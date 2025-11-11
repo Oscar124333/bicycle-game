@@ -7,6 +7,8 @@
         "stdio.h": "c",
         "globals.h": "c",
         "game_util.h": "c",
-        "menu_util.h": "c"
-    }
+        "menu_util.h": "c",
+        "unistd.h": "c"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }

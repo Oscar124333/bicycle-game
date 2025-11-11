@@ -3,7 +3,6 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/src",
                 "${workspaceFolder}/headers",
                 "${workspaceFolder}/**"
             ],
@@ -11,14 +10,7 @@
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64",
-            "browse": {
-                "path": [
-                    "${workspaceFolder}/src",
-                    "${workspaceFolder}/headers"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            }
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4

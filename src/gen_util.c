@@ -52,7 +52,7 @@ int inputHandler(int *variable)
     if (status != 1)
     {
         while ((ch = getchar()) != '\n' && ch != EOF)
-        ; // Clear buffer
+            ; // Clear buffer
     }
     return status;
 }

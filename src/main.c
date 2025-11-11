@@ -6,6 +6,7 @@
 
 #include "globals.h"
 #include "menu_util.h"
+#include "menu_UI.h"
 #include "gen_util.h"
 
 int main(void)
@@ -35,23 +36,7 @@ int main(void)
             break;
         case START:
             printf("you started the game! wow!\n");
-
-            while (true)
-            {
-                inputPrompt(&userInput, "Please choose your save.\n\n==> ");
-                if (does_save_exist(userInput))
-                {
-                    wait(0.5);
-                    printf("Loading save #%d.\n", userSave);
-                    wait(0.5);
-                    screen = game_overview();
-                    break;
-                }
-                else
-                {
-                    printf("Save not found.\n");
-                }
-            }
+            screen = save_handler();
             break;
         case OPTIONS:
             screen = main_options();
