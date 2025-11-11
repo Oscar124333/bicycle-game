@@ -40,3 +40,4 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
     + Random holidays, set cooldown before random occurances start
 + Choose type of character you are playing; evolution as the game goes on
 + Weekends are when upgrades are done (mini motorways inspo)
++ Random minigame events
