@@ -1,6 +1,9 @@
 #ifndef menuUI_H
 #define menuUI_H
 
+#include <stdio.h>
+#include <stdbool.h>
+
 #include "gen_util.h"
 #include "game_util.h"
 

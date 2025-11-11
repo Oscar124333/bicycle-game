@@ -1,18 +1,35 @@
-# === Makefile ===
-CC = gcc
-CFLAGS = -Wall -Wextra -MMD -MP
+# Compiler and flags
+CC      = gcc
+CFLAGS  = CFLAGS = -Wall -Wextra -MMD -MP -Iheaders
 
-SRC = main.c
-OBJ = $(SRC:.c=.o)
-DEP = $(OBJ:.o=.d)
+# Directories
+SRC_DIR = src
+OBJ_DIR = obj
+BIN     = bicycle
 
-main: $(OBJ)
-	$(CC) $(OBJ) -o $@
+# Collect all .c files and map to .o
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-%.o: %.c
+# Default target
+all: $(BIN)
+
+# Link all objects into final executable
+$(BIN): $(OBJS)
+	$(CC) $(OBJS) -o $@
+
+# Compile each .c into .o inside obj/
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
--include $(DEP)
+# Create obj directory if missing
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
+# Clean build artifacts
 clean:
-	rm -f $(OBJ) $(DEP) main
+	rm -rf $(OBJ_DIR) $(BIN)
+
+# Convenience run target
+run: $(BIN)
+	./$(BIN)

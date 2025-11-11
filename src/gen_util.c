@@ -1,7 +1,7 @@
-#ifndef genUTIL_H
-#define genUTIL_H
-
 #include <stdio.h>
+#include <unistd.h>
+
+#include "gen_util.h"
 
 void wait(float seconds)
 {
@@ -55,5 +55,3 @@ int inputHandler(int *variable)
     }
     return status;
 }
-
-#endif
