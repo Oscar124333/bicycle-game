@@ -3,10 +3,14 @@
 #include "menu_util.h"
 
 #include "globals.h"
+#include "menu_UI.h"
+#include "main_options.h" // Settings functionality
 #include "gen_util.h"
 #include "game_util.h"
-#include "main_options.h"
 
+/************
+*   Saves
+*************/
 bool does_save_exist(int inSave) // Currently, '1' is the only correct choice.
 {
     if (inSave == 1)
@@ -21,6 +25,34 @@ bool does_save_exist(int inSave) // Currently, '1' is the only correct choice.
     wait(0.5);
 }
 
+int save_handler(void)
+{
+    int screen = 0;
+    
+    while (true)
+    {
+        inputPrompt(&userInput,
+            "Please choose your save.\n\n"
+            "==> ");
+        if (does_save_exist(userInput))
+        {
+            wait(0.5);
+            printf("Loading save #%d.\n", userSave);
+            wait(0.5);
+            screen = game_overview();
+            break;
+        }
+        else
+        {
+            printf("Save not found.\n");
+        }
+    }
+    return screen;
+}
+
+/********************
+*   Main Functions
+*********************/
 int main_options(void)
 {
     int screen = 0;
@@ -37,10 +69,10 @@ int main_options(void)
         switch (screen)
         {
         case OPTIONS:
-            inputPrompt(&screen, "Options\n1: Linebreak Length\n2: Placeholder\n\n9: Exit\n\n==> ");
+            inputPrompt(&screen, promptOptions);
             break;
         case LINEBREAKLEN:
-            inputPrompt(&userInput, "Default Linebreak Length: 20\nPlease enter your desired length\n\n==> ");
+            inputPrompt(&userInput, promptLineBreakSetting);
             change_lineBreak(userInput);
             screen = OPTIONS;
             break;
@@ -74,32 +106,21 @@ int main_info(void)
         switch (screen)
         {
         case INFO:
-            inputPrompt(&screen, "Information\n1: How to Play\n2: Lore\n\n9: Exit\n\n==> ");
+            inputPrompt(&screen, promptInfo);
             break;
         case H2P:
-            do
-            {
-                lineBreak(lineBreakLen);
-
-                printf("How to Play WIP\n");
-                printf("\n9: Exit\n\n");
-                printf("==> ");
-            } while (inputHandler(&screen) != 1);
-
+            inputPrompt(&screen, promptH2P);
+            screen = INFO;
             break;
         case LORE:
-            do
-            {
-                lineBreak(lineBreakLen);
-                printf("Lore WIP\n");
-                printf("\n9: Exit\n\n");
-                printf("==> ");
-            } while (inputHandler(&screen) != 1);
-
+            inputPrompt(&screen, promptLore);
+            screen = INFO;
+            break;
+        case CASE_EXIT:
             break;
         default:
-            break;
             screen = INFO;
+            break;
         }
     } while (screen != EXIT);
 
@@ -121,14 +142,7 @@ int main_credits(void)
         switch (screen)
         {
         case CREDITS:
-            do
-            {
-                lineBreak(lineBreakLen);
-
-                printf("Credits WIP\n");
-                printf("\n9: Exit\n\n");
-                printf("==> ");
-            } while (inputHandler(&screen) != 1);
+            inputPrompt(&screen, promptCredits);
             break;
         case PLACEHOLDER:
             screen = CREDITS;
@@ -137,67 +151,6 @@ int main_credits(void)
             break;
         default:
             screen = CREDITS;
-            break;
-        }
-    } while (screen != EXIT);
-
-    return RESET;
-}
-
-void displayStats(PlayerStats player)
-{
-    printf("Balance: $%.2lf\n", player.dBal);
-    printf("Favors:  %d\n", player.fBal);
-    printf("$ Mult:  %.2fx\n", player.dollarRate);
-    printf("F Mult:  %.2fx\n\n", player.favorRate);
-}
-
-int game_overview(void)
-{
-    int screen = 0;
-
-    enum game_options
-    {
-        OVERVIEW,
-        GO2SCHOOL,
-        SHOP,
-        SKILLS,
-        ITERATE
-    };
-
-    lineBreak(lineBreakLen);
-
-    printf("You wake up. It's day %d.\n", dayCount);
-
-    do
-    {
-        switch (screen)
-        {
-        case OVERVIEW:
-            do
-            {
-                lineBreak(lineBreakLen);
-
-                if (true)
-                {
-                    displayStats(p1);
-                }
-
-                printf("Day %d.\n", dayCount);
-                printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
-                printf("==> ");
-            } while (inputHandler(&screen) != 1);
-            break;
-        case GO2SCHOOL:
-            screen = bike_manual();
-            break;
-        case SHOP:
-        case SKILLS:
-        case ITERATE:
-            screen = OVERVIEW;
-            break;
-        default:
-            screen = OVERVIEW;
             break;
         }
     } while (screen != EXIT);

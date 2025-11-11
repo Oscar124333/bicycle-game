@@ -6,6 +6,6 @@
 void change_lineBreak(int settingInput)
 {
     lineBreakLen = settingInput;
-    printf("\nLineBreak Length set to %d.\n", lineBreakLen);
+    printf("\nLinebreak Length set to %d.\n", lineBreakLen);
     return;
 }

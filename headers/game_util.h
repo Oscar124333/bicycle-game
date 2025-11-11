@@ -1,6 +1,6 @@
 #ifndef gameUTIL_H
 #define gameUTIL_H
 
-int bike_manual(void);
+int game_overview(void);
 
 #endif
