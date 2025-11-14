@@ -1,9 +1,9 @@
-#include "menu_util.h"
+#include "mainMenu_util.h"
 #include <stdio.h>
 #include <stdbool.h>
 
 #include "globals.h"
-#include "menu_UI.h"
+#include "mainMenu_UI.h"
 #include "main_options.h" // Settings functionality
 #include "gen_util.h"
 #include "game_util.h"

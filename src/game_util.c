@@ -17,7 +17,7 @@ int go_to_school(bool iterationState, PlayerStats *player)
     
     PlayerStats statsSummands = biking_RNG(iterations);
     change_stats_additive(player, statsSummands);
-    display_biking_RNG(statsSummands);
+    displayBiking_RNG(statsSummands);
 
     ++dayCount;
 
@@ -46,6 +46,7 @@ int game_overview(void)
         switch (screen)
         {
         case OVERVIEW:
+            // What do I do here?
             do
             {
                 lineBreak(lineBreakLen);

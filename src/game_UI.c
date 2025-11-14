@@ -4,6 +4,11 @@
 #include "globals.h"
 #include "gen_util.h"
 
+// Prompts
+char *promptGameMenu = "hmmmm";
+
+
+// Prompt Functions
 void displayStats(PlayerStats player)
 {
     printf("Balance: $%.2lf\n", player.dollars);
@@ -12,7 +17,7 @@ void displayStats(PlayerStats player)
     printf("F Mult:  %.2fx\n\n", player.favorRate);
 }
 
-void display_biking_RNG(PlayerStats change)
+void displayBiking_RNG(PlayerStats change)
 {
     float waitTime = 0.5f;
 

@@ -5,8 +5,8 @@
 #include <unistd.h>
 
 #include "globals.h"
-#include "menu_util.h"
-#include "menu_UI.h"
+#include "mainMenu_util.h"
+#include "mainMenu_UI.h"
 #include "gen_util.h"
 
 int main(void)

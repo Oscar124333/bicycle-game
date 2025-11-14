@@ -28,7 +28,6 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 ### Urgent To-Do
 + make a separate function for each case in each mega function; convert the mega function into its own header?
 + move all functions dependent on a global into their own header file
-+ figure out what `main()` should run
 + split all the functions up
 + save() function should return save#, call checksave, and call I/O function
 
@@ -41,3 +40,4 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 + Choose type of character you are playing; evolution as the game goes on
 + Weekends are when upgrades are done (mini motorways inspo)
 + Random minigame events
++ Grow a garden
