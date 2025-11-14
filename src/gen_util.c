@@ -1,7 +1,8 @@
-#ifndef genUTIL_H
-#define genUTIL_H
-
+#include "gen_util.h"
 #include <stdio.h>
+#include <unistd.h>
+
+#include "globals.h"
 
 void wait(float seconds)
 {
@@ -56,4 +57,13 @@ int inputHandler(int *variable)
     return status;
 }
 
-#endif
+void inputPrompt(int *variable, char *prompt)
+{
+    do
+    {
+        lineBreak(lineBreakLen);
+
+        printf("%s\n==> ", prompt);
+    } while (inputHandler(variable) != 1);
+    return;
+}
