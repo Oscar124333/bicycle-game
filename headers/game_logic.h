@@ -4,7 +4,17 @@
 #include "globals.h"
 
 void change_stats_additive(PlayerStats *player, PlayerStats change);
+
 void change_stats_multiplicative(PlayerStats *player, PlayerStats change);
-PlayerStats biking_RNG(int iterations);
+
+int basic_RNG(unsigned int seed, int rangeEnd, int rangeStart);
+
+unsigned int nano_seed(void);
+
+float dollar_RNG(PlayerStats player);
+
+int favor_RNG(PlayerStats player);
+
+PlayerStats biking_RNG(int iterations, PlayerStats player);
 
 #endif

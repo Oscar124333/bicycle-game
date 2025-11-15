@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <time.h>
-#include <unistd.h>
 
 #include "globals.h"
 #include "mainMenu_util.h"
@@ -23,17 +21,10 @@ int main(void)
     };
 
     lineBreak(lineBreakLen);
-<<<<<<< HEAD
     
     printf("Welcome to Oscar's Bicycle Game!\n");
     printf("Please use numbers to indicate your choices.\n");
         
-=======
-
-    printf("Welcome to Oscar's Bicycle Game!\n");
-    printf("Please use numbers to indicate your choices.\n");
-
->>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
     do
     {
         switch (screen)

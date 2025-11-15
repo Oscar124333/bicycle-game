@@ -16,20 +16,13 @@ bool does_save_exist(int inSave) // Currently, '1' is the only correct choice.
     if (inSave == 1)
     {
         printf("Successfully selected save #%d.\n", inSave);
-<<<<<<< HEAD
         wait(0.5);
-=======
->>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
         return true;
     }
     else
     {
         return false;
     }
-<<<<<<< HEAD
-=======
-    wait(0.5);
->>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
 }
 
 int save_handler(void)
@@ -41,10 +34,6 @@ int save_handler(void)
         inputPrompt(&userInput, "Please choose your save.\n");
         if (does_save_exist(userInput))
         {
-<<<<<<< HEAD
-=======
-            wait(0.5);
->>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
             printf("Loading save #%d.\n", userSave);
             wait(0.5);
             screen = game_overview();

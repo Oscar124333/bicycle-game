@@ -23,48 +23,67 @@ void change_stats_multiplicative(PlayerStats *player, PlayerStats change)
     player->favorRate *= change.favorRate;
 }
 
-<<<<<<< HEAD
+/****************
+*   RNG stuff
+****************/
 
-int dollar_RNG(PlayerStats player)
+unsigned int nano_seed(void)
 {
-    int dollarsEarned = (int)((rand() % (300 - 100)) + 100) / 100.0f
-    dollarsEarned *= player.dollarRate;
+    struct timespec seed;
+    if (clock_gettime(CLOCK_MONOTONIC, &seed) == -1)
+    {
+        perror("clock_gettime error");
+    }
+    unsigned int seedOut = (unsigned int)(seed.tv_sec ^ seed.tv_nsec);
+    return seedOut;
+}
+
+int basic_RNG(unsigned int seed, int rangeStart, int rangeEnd)
+{
+    int output = 0;
+    srand(seed);
+    output = (rand() % (rangeEnd - rangeStart)) + rangeStart;
+    return output;
+}
+
+// Calculates in integers (cents), then converts to dollars
+float dollar_RNG(PlayerStats player)
+{
+    int initialDollars = 0;
+    float dollarsEarned = 0;
+
+    initialDollars = basic_RNG(nano_seed(), 100, 300);
+    dollarsEarned = player.dollarRate * (initialDollars / 100.0f);
+
     return dollarsEarned;
 }
 
+// Chooses a random # (1-99) * 100 and checks if it is less than favorRate * 10^4
 int favor_RNG(PlayerStats player)
 {
-    int favorsEarned = 0;
-    int favorRNG = 100 * (rand() % (100 - 1) + 1);
-    int favorChance = (int)(player.favorRate * 100.0f) * 100.0f;
-
+    int favorsEarned, favorRNG, favorChance;
+    favorsEarned = favorRNG = favorChance = 0;
+    
+    favorRNG = 100 * basic_RNG(nano_seed(), 1, 100);
+    favorChance = (int)((player.favorRate * 100.0f) * 100.0f);
     if (favorRNG < favorChance)
     {
         favorsEarned++;
     }
+
     return favorsEarned;
 }
 
 PlayerStats biking_RNG(int iterations, PlayerStats player)
-=======
-PlayerStats biking_RNG(int iterations)
->>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
 {
     lineBreak(lineBreakLen);
-
+    
     PlayerStats change = {0.0f, 0, 0.0f, 0.0f};
-
+    
     for (int i = 0; i < iterations; i++)
     {
-        srand(time(NULL));
-        // Calculates in integers (cents), then converts to dollars
-<<<<<<< HEAD
         change.dollars += dollar_RNG(player);
-    
         change.favors += favor_RNG(player); 
-=======
-        change.dollars += (int)((rand() % (300 - 100)) + 100) / 100.0f;
->>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
     }
     
     return change;
