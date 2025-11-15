@@ -23,10 +23,17 @@ int main(void)
     };
 
     lineBreak(lineBreakLen);
+<<<<<<< HEAD
     
     printf("Welcome to Oscar's Bicycle Game!\n");
     printf("Please use numbers to indicate your choices.\n");
         
+=======
+
+    printf("Welcome to Oscar's Bicycle Game!\n");
+    printf("Please use numbers to indicate your choices.\n");
+
+>>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
     do
     {
         switch (screen)

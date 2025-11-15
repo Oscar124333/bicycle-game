@@ -23,6 +23,7 @@ void change_stats_multiplicative(PlayerStats *player, PlayerStats change)
     player->favorRate *= change.favorRate;
 }
 
+<<<<<<< HEAD
 
 int dollar_RNG(PlayerStats player)
 {
@@ -45,6 +46,9 @@ int favor_RNG(PlayerStats player)
 }
 
 PlayerStats biking_RNG(int iterations, PlayerStats player)
+=======
+PlayerStats biking_RNG(int iterations)
+>>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
 {
     lineBreak(lineBreakLen);
 
@@ -54,9 +58,13 @@ PlayerStats biking_RNG(int iterations, PlayerStats player)
     {
         srand(time(NULL));
         // Calculates in integers (cents), then converts to dollars
+<<<<<<< HEAD
         change.dollars += dollar_RNG(player);
     
         change.favors += favor_RNG(player); 
+=======
+        change.dollars += (int)((rand() % (300 - 100)) + 100) / 100.0f;
+>>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
     }
     
     return change;

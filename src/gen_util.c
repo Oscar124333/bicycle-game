@@ -10,11 +10,14 @@ void wait(float seconds)
     usleep(milliseconds * 1000.0f);
 }
 
+<<<<<<< HEAD
 void waitLoading(void)
 {
     wait(0.1);
 }
 
+=======
+>>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
 void lineBreak(int astNum)
 {
     int astSpace = 1;
@@ -67,10 +70,16 @@ void inputPrompt(int *variable, char *prompt)
     do
     {
         lineBreak(lineBreakLen);
+<<<<<<< HEAD
         waitLoading();
 
         printf("%s\n==> ", prompt);
     } while (inputHandler(variable) != 1);
     // waitLoading(); Add this when I embed wait() into lineBreak()
+=======
+
+        printf("%s\n==> ", prompt);
+    } while (inputHandler(variable) != 1);
+>>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
     return;
 }

@@ -26,11 +26,10 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 + Seed `rand()`
 
 ### Urgent To-Do
-+ fit `game_overview()` within `main()`
++ make a separate function for each case in each mega function; convert the mega function into its own header?
 + move all functions dependent on a global into their own header file
-    + move `lineBreak()` to `utility.h` and figure out `lineBreakLength` variable
-        + call `lineBreak()` from `utility.h` in `ui.h` might automatically just work?
-+ figure out what `main()` should run
++ split all the functions up
++ save() function should return save#, call checksave, and call I/O function
 
 ## Misc Ideas
 + Progression based on upgrades attained, calculated by averaging the "power" of the bike.
@@ -40,3 +39,5 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
     + Random holidays, set cooldown before random occurances start
 + Choose type of character you are playing; evolution as the game goes on
 + Weekends are when upgrades are done (mini motorways inspo)
++ Random minigame events
++ Grow a garden

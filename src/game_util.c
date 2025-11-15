@@ -15,7 +15,11 @@ int go_to_school(bool iterationState, PlayerStats *player)
         inputPrompt(&iterations, "How many times would you like to iterate?\n");
     }
     
+<<<<<<< HEAD
     PlayerStats statsSummands = biking_RNG(iterations, &player);
+=======
+    PlayerStats statsSummands = biking_RNG(iterations);
+>>>>>>> 27209de313e4ebb47b7837d66c0126638afbd47b
     change_stats_additive(player, statsSummands);
     displayBiking_RNG(statsSummands);
 
