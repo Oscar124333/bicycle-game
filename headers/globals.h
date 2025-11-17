@@ -14,22 +14,33 @@ extern int userSave;
 // Gameplay Data (Structs)
 typedef struct
 {
-    int type;
-    int speed;
-    int HP;
-    float accidentRate;
-} Bicycle;
-extern Bicycle bike1;
+    float mult;
+    float base;
+} BasicOperands;
 
 typedef struct
 {
-    float dollars;  // Standard currency)
-    int favors;       // Rare currency
-    float dollarRate;
-    float favorRate;
+    BasicOperands dollars;
+    BasicOperands favors;
+    BasicOperands accidents;
+} StatsType;
+
+typedef struct
+{
+    int type;
+    int HP;
+    int speed;
+    int weight;
+} Bicycle;
+
+typedef struct
+{
+    float dollars;  // Standard currency
+    int favors;     // Rare currency
+    Bicycle bike;
+    StatsType arithValues;
 } PlayerStats;
 extern PlayerStats p1;
-extern PlayerStats global_change;
 
 // Gameplay Data (Variables)
 extern int dayCount;

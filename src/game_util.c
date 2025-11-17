@@ -53,7 +53,7 @@ int game_overview(void)
 
                 if (true)
                 {
-                    displayStats(p1);
+                    displayStats(&p1);
                 }
 
                 printf("Day %d.\n", dayCount);

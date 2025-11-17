@@ -11,9 +11,9 @@ int basic_RNG(unsigned int seed, int rangeEnd, int rangeStart);
 
 unsigned int nano_seed(void);
 
-float dollar_RNG(PlayerStats player);
+float dollar_RNG(BasicOperands player);
 
-int favor_RNG(PlayerStats player);
+int favor_RNG(BasicOperands player);
 
 PlayerStats biking_RNG(int iterations, PlayerStats player);
 

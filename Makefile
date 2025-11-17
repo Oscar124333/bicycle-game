@@ -1,6 +1,7 @@
 # Compiler and flags
 CC      = gcc
 CFLAGS  = -g -O0 -Wall -Wextra -MMD -MP -Iheaders
+LDFLAGS = -lm
 
 # Directories
 SRC_DIR = src
@@ -16,7 +17,7 @@ all: $(BIN)
 
 # Link all objects into final executable
 $(BIN): $(OBJS)
-	$(CC) $(OBJS) -o $@
+	$(CC) $(OBJS) -o $@ $(LDFLAGS)
 
 # Compile each .c into .o inside obj/
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)

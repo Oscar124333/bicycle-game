@@ -3,7 +3,7 @@
 
 #include "globals.h"
 
-void displayStats(PlayerStats player);
+void displayStats(const PlayerStats *player);
 void displayBiking_RNG(PlayerStats change);
 
 #endif

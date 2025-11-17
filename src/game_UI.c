@@ -7,14 +7,15 @@
 // Prompts
 char *promptGameMenu = "hmmmm";
 
-
-// Prompt Functions
-void displayStats(PlayerStats player)
+// Print Functions
+void displayStats(const PlayerStats *player)
 {
-    printf("Balance: $%.2lf\n", player.dollars);
-    printf("Favors:  %d\n", player.favors);
+    printf("Balance: $%.2lf\n", player->dollars);
+    printf("Favors:  %d\n\n", player->favors);
+    /*
     printf("$ Mult:  %.2fx\n", player.dollarRate);
     printf("F Mult:  %.2fx\n\n", player.favorRate);
+    */
 }
 
 void displayBiking_RNG(PlayerStats change)
