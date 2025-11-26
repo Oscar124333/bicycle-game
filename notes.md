@@ -14,22 +14,27 @@ Setting is a small town, route will be between two places. Capability to unlock 
 Progression is player-paced, upgrades are 100% incremental and maps/routes can be randomly generated. 
 
 ## To-Do
-+ Refactor/enumerate prompts
-    + (x) Simplify repetitive decor (stars, lines, etc) via loops
-    + (x) Have several prototypes and function calls for such
-    + Automatic prompts and notification system (notifs optional)
-+ (x) In-game day system
-+ Save system with file I/O
-+ Collection of events, modifiers, and accidents
-+ Upgrades
-+ Speed calculator (repeatedly spits out as match goes on)
-+ Seed `rand()`
+- [ ] Refactor/enumerate prompts
+    - [x] Simplify repetitive decor (stars, lines, etc) via loops
+    - [x] Have several prototypes and function calls for such
+    - [ ] Automatic prompts and notification system (notifs optional)
+- [ ] In-game day system
+    - [x] Day Variable
+    - [ ] Progression
+    - [ ] Checks if an event prevents or speeds up days
+- [ ] Save system with file I/O 
+- [ ] Collection of events, modifiers, and accidents
+- [ ] Upgrades
+- [ ] Speed calculator (repeatedly spits out as match goes on)
+    - [ ] More speed = less `biking...` time
+- [x] Seed `rand()`
 
 ### Urgent To-Do
-+ make a separate function for each case in each mega function; convert the mega function into its own header?
-+ move all functions dependent on a global into their own header file
-+ split all the functions up
-+ save() function should return save#, call checksave, and call I/O function
+- [x] make a separate function for each case in each mega function
+    - [ ] convert the mega function into its own header?
+- [ ] move all functions dependent on a global into their own header file
+- [ ] split all the functions up
+- [ ] save() function should return save#, call checksave, and call I/O function
 
 ## Misc Ideas
 + Progression based on upgrades attained, calculated by averaging the "power" of the bike.
