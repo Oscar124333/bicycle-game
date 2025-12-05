@@ -84,6 +84,8 @@ int favor_RNG(BasicOperands favors)
     return favorsEarned;
 }
 
+
+
 PlayerStats biking_RNG(int iterations, PlayerStats player)
 {
     lineBreak(lineBreakLen);

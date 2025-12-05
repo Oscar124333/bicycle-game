@@ -41,3 +41,23 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 + Weekends are when upgrades are done (mini motorways inspo)
 + Random minigame events
 + Grow a garden
+
+
+switch (mainoptions)
+case MAIN:
+case START:
+	switch (gameoptions)
+	what option ? 5
+	option[5].run()
+	case: Bike
+	case: Shop
+		case: check item
+			what iem ? 3
+				item[3].showInfo()
+	case: Info
+		mainoptions = INFO
+case INFO:
+	case: EXIT
+		mainoptions = START
+case EXIT:
+

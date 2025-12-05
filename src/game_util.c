@@ -66,6 +66,7 @@ int game_overview(void)
             break;
         case SHOP:
             screen = OVERVIEW;
+            inputPrompt();
             break;    
         case SKILLS:
             screen = OVERVIEW;
