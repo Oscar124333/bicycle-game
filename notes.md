@@ -13,24 +13,6 @@ Setting is a small town, route will be between two places. Capability to unlock 
 
 Progression is player-paced, upgrades are 100% incremental and maps/routes can be randomly generated. 
 
-## To-Do
-+ Refactor/enumerate prompts
-    + (x) Simplify repetitive decor (stars, lines, etc) via loops
-    + (x) Have several prototypes and function calls for such
-    + Automatic prompts and notification system (notifs optional)
-+ (x) In-game day system
-+ Save system with file I/O
-+ Collection of events, modifiers, and accidents
-+ Upgrades
-+ Speed calculator (repeatedly spits out as match goes on)
-+ Seed `rand()`
-
-### Urgent To-Do
-+ make a separate function for each case in each mega function; convert the mega function into its own header?
-+ move all functions dependent on a global into their own header file
-+ split all the functions up
-+ save() function should return save#, call checksave, and call I/O function
-
 ## Misc Ideas
 + Progression based on upgrades attained, calculated by averaging the "power" of the bike.
 + Shrimp chips currency
@@ -41,6 +23,7 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 + Weekends are when upgrades are done (mini motorways inspo)
 + Random minigame events
 + Grow a garden
+<<<<<<< HEAD
 
 
 switch (mainoptions)
@@ -61,3 +44,5 @@ case INFO:
 		mainoptions = START
 case EXIT:
 
+=======
+>>>>>>> 96658167d682fd7d0803c9a8ee53ef29126a2858
