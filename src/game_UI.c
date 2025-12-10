@@ -6,6 +6,12 @@
 
 // Prompts
 char *promptGameMenu = "hmmmm";
+char *promptGameShop =
+    "Byron's Bike Shop\n"
+    "1: Placeholder\n"
+    "2: Placeholder\n"
+    "\n9: Exit\n";
+
 
 // Print Functions
 void displayStats(const PlayerStats *player)

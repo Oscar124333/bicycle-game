@@ -23,9 +23,10 @@ Progression is player-paced, upgrades are 100% incremental and maps/routes can b
 + Weekends are when upgrades are done (mini motorways inspo)
 + Random minigame events
 + Grow a garden
-<<<<<<< HEAD
 
-
+## Feedback
+example:
+``` C
 switch (mainoptions)
 case MAIN:
 case START:
@@ -43,6 +44,7 @@ case INFO:
 	case: EXIT
 		mainoptions = START
 case EXIT:
-
-=======
->>>>>>> 96658167d682fd7d0803c9a8ee53ef29126a2858
+```
+get rid of nested loops and force the loop with the outermost loop.
+every switch (button) will have its own screen states; the outermost loop will continue to loop and go through each screen state variable until it reaches the one you are on.
+issue: requires global variables or a pointer to the previous screenstate to get passed on.
