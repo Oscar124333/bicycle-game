@@ -6,7 +6,7 @@
 extern char *promptGameMenu;
 extern char *promptGameShop;
 
-void displayStats(const PlayerStats *player);
+void formatStats(const PlayerStats *player, char *buffer, unsigned int size);
 void displayBiking_RNG(PlayerStats change);
 
 #endif

@@ -14,14 +14,19 @@ char *promptGameShop =
 
 
 // Print Functions
-void displayStats(const PlayerStats *player)
+void formatStats(const PlayerStats *player, char *buffer, unsigned int size)
 {
+    /*
     printf("Balance: $%.2lf\n", player->dollars);
     printf("Favors:  %d\n\n", player->favors);
-    /*
+    ****
     printf("$ Mult:  %.2fx\n", player.dollarRate);
     printf("F Mult:  %.2fx\n\n", player.favorRate);
     */
+    snprintf(buffer, size, "Balance: $%.2lf\nFavors: %d\n\n", player->dollars, player->favors);
+    // add a check for size of numbers; make a function that writes numbers with 'k', 'm', etc.
+
+    return;
 }
 
 void displayBiking_RNG(PlayerStats change)

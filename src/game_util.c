@@ -46,16 +46,13 @@ int game_overview(void)
         switch (screen)
         {
         case OVERVIEW:
-            // What do I do here?
             do
             {
                 lineBreak(lineBreakLen);
 
-                if (true)
-                {
-                    displayStats(&p1);
-                }
-
+                char displayStats[100];
+                formatStats(&p1, displayStats, sizeof(displayStats));
+                printf("%s", displayStats);
                 printf("Day %d.\n", dayCount);
                 printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
                 printf("==> ");
