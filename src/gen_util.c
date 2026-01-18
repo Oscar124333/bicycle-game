@@ -1,6 +1,7 @@
 #include "gen_util.h"
 #include <stdio.h>
 #include <unistd.h>
+// #include <termios.h>     // linux
 
 #include "globals.h"
 
@@ -13,6 +14,8 @@ void wait(float seconds)
 void waitLoading(void)
 {
     wait(0.1);
+    // tcflush(STDIN_FILENO, TCIFLUSH); // linux
+    // while (kbhit()) { getch(); }     // windows
 }
 
 void lineBreak(int astNum)

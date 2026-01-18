@@ -46,17 +46,16 @@ int game_overview(void)
         switch (screen)
         {
         case OVERVIEW:
-            do
-            {
-                lineBreak(lineBreakLen);
+            char displayStats[128];
+            formatStatsToString(&p1, displayStats, sizeof(displayStats));
 
-                char displayStats[100];
-                formatStats(&p1, displayStats, sizeof(displayStats));
-                printf("%s", displayStats);
-                printf("Day %d.\n", dayCount);
-                printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
-                printf("==> ");
-            } while (inputHandler(&screen) != 1);
+            snprintf(promptGameMenu, sizeof(promptGameMenu), )
+            
+            printf("%s", displayStats);
+            printf("Day %d.\n", dayCount);
+            printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
+            printf("==> ");
+            inputPrompt(&screen, promptGameMenu)
             break;
         case GO2SCHOOL:
             screen = go_to_school(false, &p1);

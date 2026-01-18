@@ -13,12 +13,12 @@ int userSave = 1;
 // Gameplay Data
 /*  Distance is measured in miles * 100; 100 distance = 1 miles */
 PlayerStats p1 =
-{0.0f, 0,
-{1, 100, 10, 100},
-{
-    {1.0f, 0.25f},
-    {1.0f, 0.06f},
-    {0.3f, 0.5f}
+{0.0f, 0,               // dollars, favors
+{1, 100, 10, 100},      // bicycle: type, HP, speed, weight
+{                   // stats: multiplier, base value
+    {1.0f, 0.25f},      // dollars
+    {1.0f, 0.06f},      // favors
+    {0.3f, 0.5f}        // accidents (0.3 * 0.5 = 0.15 = 15%)
 }
 };
 int dayCount = 0;
