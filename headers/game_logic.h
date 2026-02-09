@@ -1,6 +1,8 @@
 #ifndef gameLOGIC_H
 #define gameLOGIC_H
 
+#include <stdbool.h>
+
 #include "globals.h"
 
 void change_stats_additive(PlayerStats *player, PlayerStats change);
@@ -16,5 +18,6 @@ float dollar_RNG(BasicOperands player);
 int favor_RNG(BasicOperands player);
 
 PlayerStats biking_RNG(int iterations, PlayerStats player);
+int go_to_school(bool iterationState, PlayerStats *player);
 
 #endif

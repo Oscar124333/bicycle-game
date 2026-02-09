@@ -1,4 +1,4 @@
-#include "game_util.h"
+#include "game.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -7,24 +7,8 @@
 #include "globals.h"
 #include "game_logic.h"
 #include "game_UI.h"
+#include "game_shop.h"
 #include "gen_util.h"
-
-int go_to_school(bool iterationState, PlayerStats *player)
-{
-    int iterations = 1;
-    if (iterationState)
-    {
-        inputPrompt(&iterations, "How many times would you like to iterate?\n");
-    }
-    
-    PlayerStats statsSummands = biking_RNG(iterations, *player);
-    change_stats_additive(player, statsSummands);
-    displayBiking_RNG(statsSummands);
-
-    ++dayCount;
-
-    return RESET;
-}
 
 int game_overview(void)
 {
@@ -60,7 +44,7 @@ int game_overview(void)
                     screen = EXIT;
                     break;
                 }
-                
+
                 snprintf(promptGameMenuFormatted, promptTotalSize, "%sDay %d.\n%s", displayStats, dayCount, promptGameMenu);
                 inputPrompt(&screen, promptGameMenuFormatted);
                 free(promptGameMenuFormatted);
@@ -70,8 +54,8 @@ int game_overview(void)
             screen = go_to_school(false, &p1);
             break;
         case SHOP:
-            screen = OVERVIEW;
             inputPrompt(&screen, promptGameShop);
+            screen = OVERVIEW;
             break;    
         case SKILLS:
             screen = OVERVIEW;

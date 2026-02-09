@@ -1,5 +1,5 @@
-#ifndef menuUI_H
-#define menuUI_H
+#ifndef mainUI_H
+#define mainUI_H
 
 #include "globals.h"
 

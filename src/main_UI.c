@@ -1,10 +1,10 @@
-#include "mainMenu_UI.h"
+#include "main_UI.h"
 #include <stdio.h>
 #include <stdbool.h>
 
 #include "globals.h"
 #include "gen_util.h"
-#include "mainMenu_util.h"
+#include "main_util.h"
 
 // main_options Prompts
 char *promptOptions =

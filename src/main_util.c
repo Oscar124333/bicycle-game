@@ -1,12 +1,12 @@
-#include "mainMenu_util.h"
+#include "main_util.h"
 #include <stdio.h>
 #include <stdbool.h>
 
 #include "globals.h"
-#include "mainMenu_UI.h"
-#include "main_options.h" // Settings functionality
+#include "main_UI.h"
+#include "main_util_options.h" // Settings functionality
 #include "gen_util.h"
-#include "game_util.h"
+#include "game.h"
 
 /************
 *   Saves

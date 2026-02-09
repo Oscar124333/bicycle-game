@@ -1,5 +1,5 @@
-#ifndef menuUTIL_H
-#define menuUTIL_H
+#ifndef mainUTIL_H
+#define mainUTIL_H
 
 #include <stdbool.h>
 

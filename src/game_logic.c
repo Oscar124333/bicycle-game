@@ -1,6 +1,7 @@
 #include "game_logic.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <math.h>
 #include <time.h>
 
@@ -99,4 +100,21 @@ PlayerStats biking_RNG(int iterations, PlayerStats player)
     }
     
     return change;
+}
+
+int go_to_school(bool iterationState, PlayerStats *player)
+{
+    int iterations = 1;
+    if (iterationState)
+    {
+        inputPrompt(&iterations, "How many times would you like to iterate?\n");
+    }
+    
+    PlayerStats statsSummands = biking_RNG(iterations, *player);
+    change_stats_additive(player, statsSummands);
+    displayBiking_RNG(statsSummands);
+
+    ++dayCount;
+
+    return RESET;
 }

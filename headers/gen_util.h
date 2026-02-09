@@ -1,5 +1,5 @@
-#ifndef genUTIL_H
-#define genUTIL_H
+#ifndef generalUTIL_H
+#define generalUTIL_H
 
 void wait(float seconds);
 
