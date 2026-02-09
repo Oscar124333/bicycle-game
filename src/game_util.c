@@ -1,6 +1,8 @@
 #include "game_util.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "globals.h"
 #include "game_logic.h"
@@ -46,16 +48,23 @@ int game_overview(void)
         switch (screen)
         {
         case OVERVIEW:
-            char displayStats[128];
-            formatStatsToString(&p1, displayStats, sizeof(displayStats));
-
-            snprintf(promptGameMenu, sizeof(promptGameMenu), )
-            
-            printf("%s", displayStats);
-            printf("Day %d.\n", dayCount);
-            printf("1: Bike to School\n2: Shop\n3: Skills\n4: Iterate\n\n9: Exit\n\n");
-            printf("==> ");
-            inputPrompt(&screen, promptGameMenu)
+            {
+                char displayStats[40] = {'\0'};
+                formatStatsToString(displayStats, sizeof(displayStats), &p1);
+                
+                unsigned int promptTotalSize = sizeof(displayStats) + strlen(promptGameMenu) + promptDayCountSize + NULLTERMSPACE;
+                char *promptGameMenuFormatted = malloc(promptTotalSize);
+                if (promptGameMenuFormatted == NULL)
+                {
+                    perror("Error encountered while printing the screen.");
+                    screen = EXIT;
+                    break;
+                }
+                
+                snprintf(promptGameMenuFormatted, promptTotalSize, "%sDay %d.\n%s", displayStats, dayCount, promptGameMenu);
+                inputPrompt(&screen, promptGameMenuFormatted);
+                free(promptGameMenuFormatted);
+            }
             break;
         case GO2SCHOOL:
             screen = go_to_school(false, &p1);

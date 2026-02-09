@@ -5,8 +5,13 @@
 #include "gen_util.h"
 
 // Prompts
-char * promptGameMenu = ""
-char promptGameMenuFormatted[256];
+int promptDayCountSize = 11;   // "Day ####.\n"    
+char *promptGameMenu =
+    "1: Bike to School\n"
+    "2: Shop\n"
+    "3: Skills\n"
+    "4: Iterate\n"
+    "\n9: Exit\n\n";
 char *promptGameShop =
     "Byron's Bike Shop\n"
     "1: Placeholder\n"
@@ -14,8 +19,10 @@ char *promptGameShop =
     "\n9: Exit\n";
 
 
+
+
 // Print Functions
-void formatStatsToString(const PlayerStats *player, char *buffer, unsigned int size)
+void formatStatsToString(char *buffer, unsigned int size, const PlayerStats *player)
 {
     snprintf(buffer, size, "Balance: $%.2lf\nFavors: %d\n\n", player->dollars, player->favors);
     // add a check for size of numbers; make a function that writes numbers with 'k', 'm', etc.

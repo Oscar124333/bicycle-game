@@ -4,6 +4,7 @@
 // Constants
 extern const int RESET;
 extern const int EXIT;
+extern const int NULLTERMSPACE;
 #define CASE_EXIT 9
 
 // Global Variables

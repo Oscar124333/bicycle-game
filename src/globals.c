@@ -4,6 +4,7 @@
 // Constants
 const int RESET = 0;
 const int EXIT = 9;
+const int NULLTERMSPACE = 1;
 
 // Global Variables
 int userInput = 0;
