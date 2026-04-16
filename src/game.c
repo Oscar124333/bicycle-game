@@ -32,30 +32,29 @@ int game_overview(void)
         switch (screen)
         {
         case OVERVIEW:
+        {
+            char displayStats[40] = {'\0'};
+            formatStatsToString(displayStats, sizeof(displayStats), &p1);
+            
+            unsigned int promptTotalSize = sizeof(displayStats) + strlen(promptGameMenu) + promptDayCountSize + NULLTERMSPACE;
+            char *promptGameMenuFormatted = malloc(promptTotalSize);
+            if (promptGameMenuFormatted == NULL)
             {
-                char displayStats[40] = {'\0'};
-                formatStatsToString(displayStats, sizeof(displayStats), &p1);
-                
-                unsigned int promptTotalSize = sizeof(displayStats) + strlen(promptGameMenu) + promptDayCountSize + NULLTERMSPACE;
-                char *promptGameMenuFormatted = malloc(promptTotalSize);
-                if (promptGameMenuFormatted == NULL)
-                {
-                    perror("Error encountered while printing the screen.");
-                    screen = EXIT;
-                    break;
-                }
-
-                snprintf(promptGameMenuFormatted, promptTotalSize, "%sDay %d.\n%s", displayStats, dayCount, promptGameMenu);
-                inputPrompt(&screen, promptGameMenuFormatted);
-                free(promptGameMenuFormatted);
+                perror("Error encountered while printing the screen.");
+                screen = EXIT;
+                break;
             }
+
+            snprintf(promptGameMenuFormatted, promptTotalSize, "%sDay %d.\n%s", displayStats, dayCount, promptGameMenu);
+            inputPrompt(&screen, promptGameMenuFormatted);
+            free(promptGameMenuFormatted);
+        }
             break;
         case GO2SCHOOL:
             screen = go_to_school(false, &p1);
             break;
         case SHOP:
-            inputPrompt(&screen, promptGameShop);
-            screen = OVERVIEW;
+            screen = shop_overview();
             break;    
         case SKILLS:
             screen = OVERVIEW;

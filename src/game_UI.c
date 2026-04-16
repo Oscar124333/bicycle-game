@@ -12,13 +12,21 @@ char *promptGameMenu =
     "3: Skills\n"
     "4: Iterate\n"
     "\n9: Exit\n\n";
-char *promptGameShop =
+
+// Prompts SHOP
+char *promptGameShopMenu =
     "Byron's Bike Shop\n"
-    "1: Placeholder\n"
+    "1: Bicycles\n"
     "2: Placeholder\n"
     "\n9: Exit\n";
 
-
+char *promptGameShopBIKE =
+    "Bicycles In Stock\n"
+    "1: one\n"
+    "2: two\n"
+    "3: four\n"
+    "4: nine\n"
+    "\n5: Exit\n";
 
 
 // Print Functions

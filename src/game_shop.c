@@ -15,8 +15,35 @@ int shop_overview(void)
     enum game_options
     {
         OVERVIEW,
-        
+        BICYCLES
     };
+
+    do
+    {
+        switch (screen)
+        {
+        case OVERVIEW:
+            inputPrompt(&screen, promptGameShopMenu);
+            break;
+        case BICYCLES:
+            inputPrompt(&screen, promptGameShopBIKE);
+            switch (screen)
+            {
+            case 1:
+                printf("Sucessfully bought!\n +10 Speed");
+                screen = OVERVIEW;
+                break;
+            default:
+                screen = OVERVIEW;
+                break;
+            }
+            break;
+        default:
+            screen = OVERVIEW;
+            break;
+        }
+        
+    } while (screen != RESET);
 
     lineBreak(lineBreakLen);
     return RESET;
