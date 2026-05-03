@@ -3,4 +3,6 @@
 
 #include "globals.h"
 
+int shop_overview(void);
+
 #endif

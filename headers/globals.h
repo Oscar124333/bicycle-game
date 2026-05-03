@@ -32,6 +32,7 @@ typedef struct
     int HP;
     int speed;
     int weight;
+    int value;
 } Bicycle;
 
 typedef struct

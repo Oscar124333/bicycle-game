@@ -1,7 +1,5 @@
 #include "game_shop.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 
 #include "globals.h"
 #include "game_logic.h"
@@ -26,17 +24,18 @@ int shop_overview(void)
             inputPrompt(&screen, promptGameShopMenu);
             break;
         case BICYCLES:
-            inputPrompt(&screen, promptGameShopBIKE);
-            switch (screen)
-            {
-            case 1:
-                printf("Sucessfully bought!\n +10 Speed");
-                screen = OVERVIEW;
-                break;
-            default:
-                screen = OVERVIEW;
-                break;
-            }
+            screen = bicycle_shop();
+            // inputPrompt(&screen, promptGameShopBIKE);
+            // switch (screen)
+            // {
+            // case 1:
+            //     printf("Sucessfully bought!\n +10 Speed");
+            //     screen = OVERVIEW;
+            //     break;
+            // default:
+            //     screen = OVERVIEW;
+            //     break;
+            // }
             break;
         default:
             screen = OVERVIEW;

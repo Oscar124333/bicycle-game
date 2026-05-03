@@ -15,7 +15,7 @@ int userSave = 1;
 /*  Distance is measured in miles * 100; 100 distance = 1 miles */
 PlayerStats p1 =
 {0.0f, 0,               // dollars, favors (balances)
-{1, 100, 10, 100},      // bicycle: type, HP, speed, weight
+{0, 100, 10, 100, 5},      // bicycle: type, HP, speed, weight, value
 {                   // stats: multiplier, base chance
     {1.0f, 0.25f},      // dollars
     {1.0f, 0.06f},      // favors

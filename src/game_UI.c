@@ -24,9 +24,10 @@ char *promptGameShopBIKE =
     "Bicycles In Stock\n"
     "1: one\n"
     "2: two\n"
-    "3: four\n"
-    "4: nine\n"
-    "\n5: Exit\n";
+    "3: three\n"
+    "4: four\n"
+    "5: five\n"
+    "\n9: Exit\n";
 
 
 // Print Functions
