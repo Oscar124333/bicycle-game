@@ -10,7 +10,8 @@ char *promptGameMenu =
     "1: Bike to School\n"
     "2: Shop\n"
     "3: Skills\n"
-    "4: Iterate\n"
+    "4: Home\n"
+    "5: Iterate\n"
     "\n9: Exit\n\n";
 
 // Prompts SHOP

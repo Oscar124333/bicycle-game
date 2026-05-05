@@ -25,17 +25,6 @@ int shop_overview(void)
             break;
         case BICYCLES:
             screen = bicycle_shop();
-            // inputPrompt(&screen, promptGameShopBIKE);
-            // switch (screen)
-            // {
-            // case 1:
-            //     printf("Sucessfully bought!\n +10 Speed");
-            //     screen = OVERVIEW;
-            //     break;
-            // default:
-            //     screen = OVERVIEW;
-            //     break;
-            // }
             break;
         default:
             screen = OVERVIEW;

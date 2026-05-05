@@ -58,7 +58,6 @@ float dollar_RNG(BasicOperands dollars)
     float dollarsEarned = 0;
 
     int minDollars = (int) (dollars.base * 100.0f);
-    // double maxDollarsFormula = (-3007 / (dollars.base + 30.05)) + 100;
     double maxDollarsFormula = sqrt(dollars.base * 2.3f);
     int maxDollars = (int) ((maxDollarsFormula + dollars.base) * 100.0f); 
     dollarsEarned = basic_RNG(nano_seed(), minDollars, maxDollars);
@@ -97,6 +96,12 @@ PlayerStats biking_RNG(int iterations, PlayerStats player)
     {
         change.dollars += dollar_RNG(player.arithValues.dollars);
         change.favors += favor_RNG(player.arithValues.favors); 
+    }
+
+    float playerBikeType = (float) player.bike.type;
+    if (playerBikeType > 0)
+    {
+        change.dollars *= 1.0f + (1.0f/playerBikeType);
     }
     
     return change;

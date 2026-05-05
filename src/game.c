@@ -20,6 +20,7 @@ int game_overview(void)
         GO2SCHOOL,
         SHOP,
         SKILLS,
+        HOME,
         ITERATE
     };
 
@@ -57,6 +58,9 @@ int game_overview(void)
             screen = shop_overview();
             break;    
         case SKILLS:
+            screen = OVERVIEW;
+            break;    
+        case HOME:
             screen = OVERVIEW;
             break;    
         case ITERATE:
